@@ -1,28 +1,45 @@
 import React from "react";
 import "./Sidebar.css";
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose, onPageChange }) {
+  const handleNavigation = (pageName) => {
+    onPageChange(pageName);
+    onClose(); // Close sidebar after navigation
+  };
+
   return (
-    <div className="sidebar">
-      <div className="sidebar-logo">VISAGE</div>
+    <div className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
+      <div className="sidebar-header">
+        <div className="sidebar-logo">VISAGE</div>
+        <button className="close-btn" onClick={onClose}>×</button>
+      </div>
       <ul className="sidebar-menu">
-        <li className="active">Dashboard</li>
-        <li>My Classes</li>
-        <li>Attendance Logs</li>
-        <li>Schedule</li>
-        <li>My Profile</li>
-        <li>Time Logs</li>
-        <li>Reports</li>
+        <li onClick={() => handleNavigation("Dashboard")}>
+          Dashboard
+        </li>
+        <li onClick={() => handleNavigation("My Classes")}>
+          My Classes
+        </li>
+        <li onClick={() => handleNavigation("Attendance Logs")}>
+          Attendance Logs
+        </li>
+        <li onClick={() => handleNavigation("Schedule")}>
+          Schedule
+        </li>
+        <li onClick={() => handleNavigation("My Profile")}>
+          My Profile
+        </li>
+        <li onClick={() => handleNavigation("Time Logs")}>
+          Time Logs
+        </li>
+        <li onClick={() => handleNavigation("Reports")}>
+          Reports
+        </li>
       </ul>
       <div className="sidebar-footer">
-        <div className="sidebar-user">
-          <img src="/logo192.png" alt="profile" />
-          <div>
-            <p>Prof. Rebecca Miller</p>
-            <span>Computer Science Department</span>
-          </div>
+        <div className="profile-picture" onClick={() => handleNavigation("My Profile")}>
+          <img src="/logo192.png" alt="Profile" />
         </div>
-        <button className="signout-btn">Sign Out</button>
       </div>
     </div>
   );

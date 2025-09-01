@@ -2,16 +2,13 @@ import React from "react";
 import "./Dashboard.css";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
-export default function Dashboard() {
+export default function Dashboard({ onMenuClick }) {
   return (
     <div className="dashboard">
-      {/* Top Header */}
-      <div className="dashboard-header">
-        <input type="text" placeholder="Search users, rooms..." />
-        <div className="header-buttons">
-          <Button variant="light">Export Report</Button>
-          <Button className="add-btn">+ Add New User</Button>
-        </div>
+      {/* Action Buttons */}
+      <div className="dashboard-actions">
+        <Button variant="light">Export Report</Button>
+        <Button className="add-btn">+ Add New User</Button>
       </div>
 
       {/* Stats Cards */}

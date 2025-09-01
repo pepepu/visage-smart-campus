@@ -2,17 +2,11 @@
   padding: 20px;
 }
 
-.dashboard-header {
+.dashboard-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 15px;
   margin-bottom: 20px;
-}
-
-.dashboard-header input {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 8px 12px;
-  width: 300px;
 }
 
 .add-btn {
@@ -25,6 +19,7 @@
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
 }
 
 .stat-card p {
@@ -44,6 +39,7 @@
 
 .bim-view {
   padding: 15px;
+  margin-bottom: 20px;
 }
 
 .bim-placeholder {
